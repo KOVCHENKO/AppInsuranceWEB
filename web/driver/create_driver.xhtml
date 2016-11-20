@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Добавить нового водителя</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/templates/main_template.xhtml">
+        <ui:define name="content">
+
+
+            <h2>Добавить нового водителя</h2>
+
+            <h:form>
+                <table border="0" cellspacing="5">
+                    <tr>
+                        <td align="left">
+                            <h:outputLabel value="Введите номер водительского удостоверения  " />
+                        </td>
+                        <td>
+                            <h:inputText id="id" value="#{driverController.driverLicense}" required="true" requiredMessage="Введите номер ВУ" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="left">
+                            <h:outputLabel value="Введите ФИО водиетля " />
+                        </td>
+                        <td>
+                            <h:inputText id="name" value="#{driverController.name}" required="true" requiredMessage="Введите имя" />
+                        </td>
+                    </tr>
+
+                   <tr>
+                        <td colspan="2" align="center">
+                            <h:commandButton action="#{driverController.save}" value="Создать" />
+
+                        </td>
+                    </tr>
+                </table>
+
+            </h:form>
+
+
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+
+
+
+</html>

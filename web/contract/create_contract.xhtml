@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Добавить автомобиль</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/templates/main_template.xhtml">
+    <ui:define name="content">
+
+
+    <h2>Заключить новый контракт на страхование</h2>
+    <h3> Выберите машину </h3>
+
+    <h:form>
+
+        <h:dataTable value="#{carController.allCars}" var="c" class="table">
+
+            <h:column>
+                <f:facet name="header">id автомобиля:</f:facet>
+                #{c.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">марка автомобиля:</f:facet>
+                #{c.label}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">регистрационный номер автомобиля:</f:facet>
+                #{c.stateNumber}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">мощность двигателя:</f:facet>
+                #{c.capacity}
+            </h:column>
+
+           <h:column>
+                <f:facet name="header">Посмотреть водителей на авто:</f:facet>
+                <h:commandLink value="Посмотреть водителей на авто" action="#{carController.showAllDriversOfCar(c.id)}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Заключить договор на этот автомобиль:</f:facet>
+                <h:commandLink value="Заключить договор на этот автомобиль" action="#{contractController.chooseCar(c)}"/>
+            </h:column>
+
+
+        </h:dataTable>
+
+    </h:form>
+
+
+    </ui:define>
+    </ui:composition>
+
+</h:body>
+
+
+
+</html>

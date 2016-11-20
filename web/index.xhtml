@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+   <title>Вход пользователя</title>
+</h:head>
+<h:body>
+
+   <h:link value="Войти как администратор" outcome="admin/getAllEmployees"/>
+
+   <h2>Введите логин/пароль</h2>
+
+   <h:form>
+      <table border="0" cellspacing="5">
+
+
+         <tr>
+            <td align="left">
+               <h:outputLabel value="Введите логин (email) " />
+            </td>
+            <td>
+               <h:inputText id="name" value="#{userController.email}" required="true" requiredMessage="Введите логин (email)" />
+            </td>
+         </tr>
+
+         <tr>
+            <td align="left">
+               <h:outputLabel value="Введите пароль" />
+            </td>
+            <td>
+               <h:inputText id="coefficient" value="#{userController.password}" required="true" requiredMessage="Введите пароль" />
+            </td>
+         </tr>
+
+         <tr>
+            <td colspan="2" align="center">
+               <h:commandButton action="#{userController.login}" value="Войти" />
+
+            </td>
+         </tr>
+      </table>
+
+   </h:form>
+
+
+
+</h:body>
+
+
+
+</html>

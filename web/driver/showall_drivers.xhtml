@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+<h:head>
+    <title>Все автомобили</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/templates/main_template.xhtml">
+        <ui:define name="content">
+
+
+            <h2>Все водители</h2>
+            <h:form>
+
+                <p:dataTable id="drivers" value="#{driverController.allDrivers}" var="d" class="table" filteredValue="#{driverController.filteredDrivers}">
+                    <p:column filterBy="#{d.id}" sortBy="#{d.id}">
+                        <f:facet name="header">id водителя:</f:facet>
+                        #{d.id}
+                    </p:column>
+
+                    <p:column filterBy="#{d.driverLicense}" sortBy="#{d.driverLicense}">
+                        <f:facet name="header">Номер ВУ:</f:facet>
+                        #{d.driverLicense}
+                    </p:column>
+
+
+                    <p:column filterBy="#{d.name}" sortBy="#{d.name}">
+                        <f:facet name="header">Имя водителя</f:facet>
+                        #{d.name}
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Удалить водителя:</f:facet>
+                        <h:commandLink value="Удалить водителя" action="#{driverController.destroy(d)}"/>
+                    </p:column>
+
+                </p:dataTable>
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+
+
+
+</html>
